@@ -11,20 +11,16 @@ public class Student {
     private int balance;
     private final String[] coursesList = new String[5]; // To store the courses
 
-    // Constructor to receive the student's name and year
     public Student() {
         noOfStudents++; // Initializing and Incrementing the number of students
 
         System.out.print("Enter the full name of the student: ");
         this.studentName = userInput.nextLine();
 
-        System.out.println("1 - Freshman\n2 - Sophomore\n3 - Junior\n4 - Senior");
-
         System.out.print("Enter year: ");
         this.enrollYear = userInput.nextInt();
 
-        // Setting the student's ID
-        this.studentID = generateID();
+        this.studentID = generateID(); // Generating the ID
     }
 
     // Generating the 5-digit unique ID
@@ -49,18 +45,18 @@ public class Student {
 
         System.out.println("""
 
-                ENTER THE COURSES YOU WISH TO ENTER
-                1.History
-                2.Maths
-                3.English
-                4.Chemistry
-                5.Comp Science""");
+                ENTER THE COURSES YOU WISH TO ENROLL
+                1. History
+                2. Mathematics
+                3. English
+                4. Chemistry
+                5. Computer Science""");
 
         while (true) {
-            System.out.println("ENTER CODE OF COURSE TO ENROLL // ENTER 9 TO EXIT: ");
+            System.out.println("ENTER THE CODE OF COURSE TO ENROLL OR ENTER 9 TO EXIT: ");
             int choice = userInput.nextInt();
 
-            if (choice == 9) {
+            if (choice == 9) { // To exit the loop
                 break;
             } else {
 
@@ -68,14 +64,14 @@ public class Student {
                 if (choice > 0 && choice < 6) {
 
                     flag++; // Incrementing the index
-                    this.balance += 600; // Increasing the balance
+                    this.balance += 10000; // Increasing the balance
 
                     switch (choice) {
                         case 1:
                             this.coursesList[flag] = "History";
                             break;
                         case 2:
-                            this.coursesList[flag] = "Maths";
+                            this.coursesList[flag] = "Mathematics";
                             break;
                         case 3:
                             this.coursesList[flag] = "English";
@@ -99,12 +95,16 @@ public class Student {
         System.out.println("Your Current Balance is : $" + this.balance);
     }
 
-    // Pay Tuition
+    // To Pay the Tuition fee
     public void payTuition() {
+        // Displaying the balance
         this.viewBalance();
+
         System.out.print("Enter the amount of money that you want to pay: $");
         int makePayment = userInput.nextInt();
-        this.balance = this.balance - makePayment;
+
+        this.balance = this.balance - makePayment; // Decreasing the balance
+
         System.out.println("Thanks for the payment of $" + makePayment + " !");
         this.viewBalance(); // Displaying the balance
     }
