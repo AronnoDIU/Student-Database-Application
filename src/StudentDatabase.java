@@ -30,19 +30,19 @@ public class StudentDatabase {
                 choice = userInput.nextInt(); // Get the user's choice
 
                 switch (choice) {
-                    case 1:
+                    case 1: // Show Student Info
                         students[i].showStudentInfo(); // Display the student's information
                         break;
-                    case 2:
+                    case 2: // Enrollment of Courses
                         students[i].coursesENROLL(); // Enroll in courses
                         break;
-                    case 3:
+                    case 3: // Pay Tuition fee for Courses
                         students[i].payTuition(); // Pay tuition
                         break;
-                    case 4:
+                    case 4: // Exit
                         System.out.println("\nTHANKS FOR USING THE APPLICATION!");
                         break;
-                    default:
+                    default: // Invalid Choice
                         System.out.println("INVALID CHOICE! PLEASE ENTER AGAIN!");
                 }
             } while (choice != 4);
